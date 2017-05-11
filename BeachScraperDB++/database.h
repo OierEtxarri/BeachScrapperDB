@@ -11,6 +11,7 @@
 
 class database{
 	sqlite3 *db;
+	//Lo que guardemos en la bd como atributo
 public:
 	int openDataBase();
 	int closeDataBase();
