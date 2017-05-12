@@ -4,32 +4,48 @@
  *  Created on: 11 may. 2017
  *      Author: iMac
  */
-#include <iostream>
 #include "database.h"
-#include "sqlite3.h"
+
 
 using namespace std;
 
-int database::openDataBase()
+database::database (char *nombre){
+
+	this->nombre=new char[strlen(nombre)+1];
+	strcpy(this->nombre, nombre);
+
+
+}
+
+database::~database(){
+	delete [] db;
+}
+
+int database::open()
 {
-	int result = sqlite3_open("beachScraper.sqlite", &db);
+	int result = sqlite3_open(this->nombre, &db);
 		if(result != SQLITE_OK)
 		{
 			cout<< "Error al abrir la Base de Datos" << endl;
-			return result;
+
 		}
-		cout<< "Base de Datos abierta"<< endl;
-	}
-int database::closeDataBase()// No se si va bien
+		else{
+			cout<< "Base de Datos abierta"<< endl;
+		}
+		return result;
+}
+int database::close()// No se si va bien
 {
 	int result = sqlite3_close(db);
 		if (result != SQLITE_OK) {
 			cout <<"Error opening database" <<endl;
-			cout << sqlite3_errmsg(db) <<endl;
-			return result;
-		}
+			//cout << sqlite3_errmsg(db) <<endl;
+		}else{
+			cout <<"Base de datos cerrada"<<endl;
 
-		cout <<"Base de datos cerrada"<<endl;
+		}
+		return result;
+
 
 		return 0;
 	}
