@@ -8,9 +8,11 @@
 #ifndef DATABASE_H_
 #define DATABASE_H_
 #include "sqlite3.h"
+#include "Playa.h"
+#include <fstream>
 #include <iostream>
 #include <string.h>
-#include <string>
+
 
 namespace std{
 
@@ -29,6 +31,9 @@ public:
 	int createTable();
 	int deleteTable();
 
+	void volcarPlayasABD(); //volcar de fichero a bd
+	void visualizarPlayas();
+	void visualizarPlayasQueEmpiezanPorS();
 
 };
 

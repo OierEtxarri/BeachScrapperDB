@@ -13,9 +13,14 @@ using namespace std;
 
 int main(){
 
-	database DB;
-	DB.openDataBase();
+	database * DB = new database("DB.db"); //así he llamado a la base de datos(DB.db)
+	DB->open();
+	DB->volcarPlayasABD();
+	cout<<"Todas las playas..."<<endl;
+	DB->visualizarPlayas();
+	cout<<"Playas cuyo nombre empieza por S..."<<endl;
+	DB->visualizarPlayasQueEmpiezanPorS();
 	cout << "Funciona" << endl;
-	DB.closeDataBase();
+	DB->close();
 }
 
