@@ -88,7 +88,8 @@ void database::visualizarPlayas(){
 }
 
 
-void database::visualizarPlayasQueEmpiezanPorS(){
+/**
+ * void database::visualizarPlayasQueEmpiezanPorS(){
 	char query[100] ="SELECT * FROM playa";
 	sqlite3_prepare_v2(db,query,strlen(query),&stmt,NULL);
 	int resul = sqlite3_step(stmt);
@@ -101,5 +102,22 @@ void database::visualizarPlayasQueEmpiezanPorS(){
 	}
 	sqlite3_finalize(stmt);
 }
+ * */
+
+void database::visualizarPlayasQueEmpiezanPor(char letra){
+char query[100] ="SELECT * FROM playa";
+sqlite3_prepare_v2(db,query,strlen(query),&stmt,NULL);
+int resul = sqlite3_step(stmt);
+while(resul==SQLITE_ROW){
+char * codigo = (char*) sqlite3_column_text(stmt,0);
+char * nombre = (char*) sqlite3_column_text(stmt,1);
+if (nombre[0]==toupper(letra) || nombre[0]==tolower(letra) )
+cout<<codigo<<" "<<nombre<<endl;
+resul = sqlite3_step(stmt);
+}
+sqlite3_finalize(stmt);
+}
+
+
 
 
