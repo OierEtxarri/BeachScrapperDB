@@ -33,7 +33,8 @@ public:
 
 	void volcarPlayasABD(); //volcar de fichero a bd
 	void visualizarPlayas();
-	void visualizarPlayasQueEmpiezanPorS();
+	//void visualizarPlayasQueEmpiezanPorS();
+	void visualizarPlayasQueEmpiezanPor(char letra);
 
 };
 

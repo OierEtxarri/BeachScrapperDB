@@ -19,7 +19,8 @@ int main(){
 	cout<<"Todas las playas..."<<endl;
 	DB->visualizarPlayas();
 	cout<<"Playas cuyo nombre empieza por S..."<<endl;
-	DB->visualizarPlayasQueEmpiezanPorS();
+	//DB->visualizarPlayasQueEmpiezanPorS();
+	DB->visualizarPlayasQueEmpiezanPor(char letra);
 	cout << "Funciona" << endl;
 	DB->close();
 }

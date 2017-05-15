@@ -5,9 +5,19 @@
  *      Author: leyre
  */
 
+
 #ifndef MENU_H_
 #define MENU_H_
+#include "database.h"
+
+
+class menu{
+public:
+int mostrarMenu();
+};
 
 
 
 #endif /* MENU_H_ */
+
+
